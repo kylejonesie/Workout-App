@@ -1,6 +1,6 @@
 json{
-  "name": "Train — Block 1",
-  "short_name": "Train",
+  "name": "Endure — Block 1",
+  "short_name": "Endure",
   "description": "12-week training block workout logger",
   "start_url": "/",
   "display": "standalone",
