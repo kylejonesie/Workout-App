@@ -294,8 +294,8 @@
     <div style="font-size:22px;font-weight:700;margin-bottom:20px;color:var(--text)">Settings</div>
     <div class="set-section">
       <div class="set-label">Google Sheets</div>
-      <input class="sheet-input" id="sheet-input" placeholder="Spreadsheet ID" value="1uLPvp6hLbdh6ZLDSJ7ec1jb-ooFKPgBLKHZgoiMco0U">
-      <button class="connect-btn" id="connect-btn">Connect Google account</button>
+      <div class="settings-row-sub" style="margin-bottom:8px;color:var(--text3);font-size:12px">Paste your Apps Script webhook URL here</div>
+      <input class="sheet-input" id="sheet-input" placeholder="https://script.google.com/macros/s/…/exec">
     </div>
     <div class="set-section">
       <div class="set-label">Rest timer</div>
@@ -335,16 +335,18 @@ const PLAN = {
     {n:"Avg HR (bpm)",     tgt:"107–125", t:"note"},
   ]},
   1:{ name:"Strength A — upper", tag:"strength", dur:"60–70 min", ex:[
-    {n:"Shoulder CARs",         tgt:"5 each dir.", t:"note"},
-    {n:"Wrist prep",            tgt:"60 sec", t:"note"},
-    {n:"Dead hang → active",    tgt:"2 × 20s", t:"note"},
-    {n:"Ring push-up",          tgt:"3 × 5 / BW",    t:"sets", ds:3, dr:"5",  dw:"BW"},
-    {n:"Ring row",              tgt:"3 × 5 / BW",    t:"sets", ds:3, dr:"5",  dw:"BW"},
-    {n:"Pike push-up on rings", tgt:"3 × 3–5 / BW",  t:"sets", ds:3, dr:"3",  dw:"BW"},
-    {n:"Weighted pull-up",      tgt:"3 × 3 / +10",   t:"sets", ds:3, dr:"3",  dw:"+10"},
-    {n:"Wall shoulder lift-offs",tgt:"3 × 10s", t:"note"},
-    {n:"Dead hang shrugs",      tgt:"2 × 10",        t:"sets", ds:2, dr:"10", dw:"BW"},
-    {n:"PT rehab",              tgt:"as prescribed",  t:"note"},
+    {n:"Warm Up: Wrist Prep",                   tgt:"60 sec", t:"note"},
+    {n:"Warm Up: Shoulder CARs / Band Work",    tgt:"", t:"note"},
+    {n:"Warm Up: Scapular Pull-ups",            tgt:"2 × 5", t:"note"},
+    {n:"Calf PT: Tripod Calf Stretch",          tgt:"2 sets × 15 reps", t:"note"},
+    {n:"Calf PT: Heel Raise on Step",           tgt:"3 sets × 20 reps", t:"note"},
+    {n:"Calf PT: Seated Calf Raise w/ Weights", tgt:"3 sets × 12 reps / 25 lb", t:"note"},
+    {n:"Calf PT: Standing Triple Extension",    tgt:"3 sets × 5 reps", t:"note"},
+    {n:"Pike push-up",                          tgt:"3 × 3–5 / BW", t:"sets", ds:3, dr:"3", dw:"BW"},
+    {n:"Ring row",                              tgt:"3 × 5 / BW",   t:"sets", ds:3, dr:"5", dw:"BW"},
+    {n:"Weighted pull-up",                      tgt:"3 × 3 / +10",  t:"sets", ds:3, dr:"3", dw:"+10"},
+    {n:"Ring push-up",                          tgt:"3 × 5 / BW",   t:"sets", ds:3, dr:"5", dw:"BW"},
+    {n:"Dead hang",                             tgt:"2 × 20s", t:"note"},
   ]},
   2:{ name:"Cycling — speed ride", tag:"cycle", dur:"~90 min", ex:[
     {n:"Warmup spin",     tgt:"10–15 min", t:"note"},
@@ -355,15 +357,18 @@ const PLAN = {
     {n:"Duration",        tgt:"", t:"note"},
   ]},
   3:{ name:"Strength C — skill", tag:"strength", dur:"60–70 min", ex:[
-    {n:"Smith mobility flow",    tgt:"12 min", t:"note"},
+    {n:"Warm Up: Run/Walk",                     tgt:"", t:"note"},
+    {n:"Warm Up: Shoulder CARs / Band Work",    tgt:"", t:"note"},
+    {n:"Warm Up: Deep Squat",                   tgt:"2 × 45s", t:"note"},
+    {n:"Calf PT: Tripod Calf Stretch",          tgt:"2 sets × 15 reps", t:"note"},
+    {n:"Calf PT: Heel Raise on Step",           tgt:"3 sets × 20 reps", t:"note"},
+    {n:"Calf PT: Seated Calf Raise w/ Weights", tgt:"3 sets × 12 reps / 25 lb", t:"note"},
+    {n:"Calf PT: Standing Triple Extension",    tgt:"3 sets × 5 reps", t:"note"},
     {n:"Wall-facing HS hold",    tgt:"5 × 15–30s", t:"note"},
-    {n:"Shoulder lift-offs",     tgt:"3 × 10s", t:"note"},
     {n:"Pancake stretch",        tgt:"3 × 45s", t:"note"},
     {n:"L-sit (parallettes)",    tgt:"4 × max hold", t:"note"},
-    {n:"Ring push-up (easy)",    tgt:"3 × 4 / BW", t:"sets", ds:3, dr:"4", dw:"BW"},
     {n:"Ring row (easy)",        tgt:"3 × 4 / BW", t:"sets", ds:3, dr:"4", dw:"BW"},
-    {n:"BW pull-up",             tgt:"3 × 4 / BW", t:"sets", ds:3, dr:"4", dw:"BW"},
-    {n:"PT rehab",               tgt:"as prescribed", t:"note"},
+    {n:"Shoulder dislocates",    tgt:"2 × 10", t:"note"},
   ]},
   4:{ name:"Climbing — power end.", tag:"climb", dur:"90–105 min", ex:[
     {n:"Warmup climbing",   tgt:"15 min progressive", t:"note"},
@@ -375,18 +380,19 @@ const PLAN = {
     {n:"Cooldown stretch",  tgt:"10 min", t:"note"},
   ]},
   5:{ name:"Strength B — lower", tag:"strength", dur:"65–75 min", ex:[
-    {n:"Hip 90/90 + CARs",       tgt:"5 CARs each side", t:"note"},
-    {n:"Deep squat hold",        tgt:"2 × 45s", t:"note"},
-    {n:"Ankle dorsiflexion",     tgt:"10 reps each side", t:"note"},
+    {n:"Warm Up: Run/Walk",                     tgt:"", t:"note"},
+    {n:"Warm Up: Deep Squat",                   tgt:"2 × 45s", t:"note"},
+    {n:"Warm Up: Cossack Squat",                tgt:"2 × 8 each side", t:"note"},
+    {n:"Calf PT: Tripod Calf Stretch",          tgt:"2 sets × 15 reps", t:"note"},
+    {n:"Calf PT: Heel Raise on Step",           tgt:"3 sets × 20 reps", t:"note"},
+    {n:"Calf PT: Seated Calf Raise w/ Weights", tgt:"3 sets × 12 reps / 25 lb", t:"note"},
+    {n:"Calf PT: Standing Triple Extension",    tgt:"3 sets × 5 reps", t:"note"},
     {n:"Pistol squat — LEFT",    tgt:"4 × 3–5", t:"sets", ds:4, dr:"3", dw:"assisted"},
     {n:"Pistol squat — RIGHT",   tgt:"4 × 3–5", t:"sets", ds:4, dr:"3", dw:"assisted"},
-    {n:"SL-RDL — LEFT",          tgt:"3 × 6 / BW", t:"sets", ds:3, dr:"6", dw:"BW"},
-    {n:"SL-RDL — RIGHT",         tgt:"3 × 6 / BW", t:"sets", ds:3, dr:"6", dw:"BW"},
+    {n:"RDL",                    tgt:"3 × 5 / 75", t:"sets", ds:3, dr:"5", dw:"75"},
     {n:"SL glute bridge — LEFT", tgt:"3 × 8", t:"sets", ds:3, dr:"8", dw:"BW"},
     {n:"SL glute bridge — RIGHT",tgt:"3 × 8", t:"sets", ds:3, dr:"8", dw:"BW"},
-    {n:"Cossack squat",          tgt:"2 × 8 each side", t:"note"},
     {n:"Nerve floss (pain-free)",tgt:"10 reps each side", t:"note"},
-    {n:"PT rehab",               tgt:"as prescribed", t:"note"},
   ]},
   6:{ name:"Climbing — ARC", tag:"climb", dur:"80–90 min", ex:[
     {n:"Warmup traversing",       tgt:"10 min V0–V1", t:"note"},
@@ -686,19 +692,42 @@ async function doSave(){
   const btn=document.getElementById("save-btn");
   const msg=document.getElementById("save-msg");
   btn.disabled=true; btn.textContent="Saving…"; msg.style.display="none";
-  const text=buildPayload();
-  const sid=S.sheetId||"1uLPvp6hLbdh6ZLDSJ7ec1jb-ooFKPgBLKHZgoiMco0U";
+  const cs=S.session;
+  const dk=cs.dateKey||dateKey(new Date());
+  const [dy,dm,dd]=dk.split("-").map(Number);
+  const notes=document.getElementById("sum-notes").value.trim();
+  // Build structured payload for Apps Script
+  const payload={
+    date:`${dm}/${dd}/${dy}`,
+    name:cs.name,
+    notes,
+    exercises:cs.exercises.filter(e=>e.done).map(ex=>{
+      let value="";
+      if(ex.t==="sets"){
+        const logged=ex.sets.filter(s=>s.logged);
+        value=logged.map((s,i)=>`Set ${i+1}: ${s.r} × ${s.w}`).join(", ");
+      } else { value=ex.note||"done"; }
+      return {name:ex.n, value, target:ex.tgt||""};
+    })
+  };
+  const webhookUrl=S.sheetId;
+  if(!webhookUrl||!webhookUrl.startsWith("https://script.google.com")){
+    // No webhook configured — copy to clipboard as fallback
+    try{ await navigator.clipboard.writeText(buildPayload()); }catch(_){}
+    msg.className="save-msg err"; msg.textContent="No webhook URL set in Settings — copied to clipboard instead."; msg.style.display="block";
+    archiveSession();
+    btn.disabled=false; btn.textContent="Save to Google Sheet";
+    return;
+  }
   try{
-    const resp=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1000,mcp_servers:[{type:"url",url:"https://drivemcp.googleapis.com/mcp/v1",name:"gdrive"}],messages:[{role:"user",content:`Append this workout log to Google Spreadsheet "${sid}", tab "2025", after the last entry. Date as row header, exercise in col A, result in col B.\n\n${text}\n\nReply with "done".`}]})});
-    const data=await resp.json();
-    const out=(data.content||[]).filter(b=>b.type==="text").map(b=>b.text).join(" ").toLowerCase();
-    if(out.includes("done")||out.includes("added")||out.includes("appended")||out.includes("written")){
-      msg.className="save-msg ok"; msg.textContent="Saved to your Google Sheet ✓"; msg.style.display="block";
-      archiveSession();
-    } else throw new Error();
+    // Apps Script requires no-cors for cross-origin POST from a PWA
+    await fetch(webhookUrl,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+    // no-cors means we can't read the response — assume success if no network error
+    msg.className="save-msg ok"; msg.textContent="Saved to Google Sheet ✓"; msg.style.display="block";
+    archiveSession();
   } catch(e){
-    try{ await navigator.clipboard.writeText(text); }catch(_){}
-    msg.className="save-msg err"; msg.textContent="Couldn't write directly — copied to clipboard. Paste into your 2025 tab."; msg.style.display="block";
+    try{ await navigator.clipboard.writeText(buildPayload()); }catch(_){}
+    msg.className="save-msg err"; msg.textContent="Couldn't reach Google Sheet — copied to clipboard instead."; msg.style.display="block";
     archiveSession();
   }
   btn.disabled=false; btn.textContent="Save to Google Sheet";
@@ -847,10 +876,7 @@ function renderSettings(){
   document.getElementById("timer-toggle").className="toggle"+(S.timerOn?" on":"");
   document.getElementById("dur-row").style.display=S.timerOn?"flex":"none";
   document.getElementById("timer-dur").value=S.timerDur;
-  document.getElementById("sheet-input").value=S.sheetId;
-  const cb=document.getElementById("connect-btn");
-  cb.className="connect-btn"+(S.gConnected?" on":"");
-  cb.textContent=S.gConnected?"✅ Google account connected":"Connect Google account";
+  document.getElementById("sheet-input").value=S.sheetId||"";
   if(S.blockStart){ const w=Math.ceil((Date.now()-S.blockStart)/(7*24*60*60*1000)); document.getElementById("week-label").textContent=`Week ${Math.min(w,12)} of 12`; }
 }
 
@@ -884,7 +910,7 @@ document.getElementById("cal-next").addEventListener("click",()=>{ calMonth++; i
 document.getElementById("timer-toggle").addEventListener("click",()=>{ S.timerOn=!S.timerOn; save(); renderSettings(); });
 document.getElementById("timer-dur").addEventListener("change",e=>{ S.timerDur=parseInt(e.target.value); save(); });
 document.getElementById("sheet-input").addEventListener("change",e=>{ S.sheetId=e.target.value.trim(); save(); });
-document.getElementById("connect-btn").addEventListener("click",()=>{ S.gConnected=!S.gConnected; save(); renderSettings(); toast(S.gConnected?"Google connected":"Disconnected"); });
+
 
 if("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js").catch(()=>{});
 </script>
